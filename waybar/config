@@ -1,0 +1,93 @@
+// __        __          _                 
+// \ \      / /_ _ _   _| |__   __ _ _ __  
+//  \ \ /\ / / _` | | | | '_ \ / _` | '__| 
+//   \ V  V / (_| | |_| | |_) | (_| | |    
+//    \_/\_/ \__,_|\__, |_.__/ \__,_|_|    
+//                 |___/                   
+//  
+// by Stephan Raabe (2023) 
+// ----------------------------------------------------- 
+//
+{
+    // General Settings
+    "layer": "top",
+    "margin-bottom": 0,
+    "margin-left": 0,
+    "margin-right": 0,    
+    "spacing": 0,
+
+    // Pulseaudio
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": " ",
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [" ", " ", " "]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "battery": {
+    "format": "HP  {capacity}/100",
+    "format-charging": "HP {capacity}/100",
+    "tooltip": true,
+    "states":{
+	"critical": 15
+    },
+    "critical-threshold": 15
+    },
+
+
+
+    "network": {
+    "interface": "wlan0", // or use "eth0" or leave blank for auto-detect
+    "format": " ",
+    "tooltip-format": "SSID:	{essid}\nSignal:	{signalStrength}%\nIP:		{ipaddr}",
+    "format-disconnected": " ",
+    "on-click": "kitty --class dotfiles-floating -e nmtui"
+    },
+
+    "custom/volume_bar": {
+    "exec": "~/.config/waybar/scripts/volume_bar.sh",
+    "signal": 9,
+    "return-type": "json",
+    "format": "{}",
+    "tooltip": false
+    },
+
+    "custom/apps": {
+    "format": " Apps ",
+    "on-click": "rofi -show drun",
+    "tooltip": false,
+    "exec-if": "which rofi"
+    },
+
+    "clock":{
+    "tooltip": false
+    },
+
+    // Modules Left
+    "modules-left": [
+	"custom/apps"
+    ],
+
+    // Modules Center
+    "modules-center": [
+	"hyprland/workspaces"
+    ],
+
+    // Modules Right    
+    "modules-right": [
+        "pulseaudio",
+        "custom/volume_bar",
+        "network",
+        "battery", 
+        "power-profiles-daemon",
+        "clock"
+    ]
+}

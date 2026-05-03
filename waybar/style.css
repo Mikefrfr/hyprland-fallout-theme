@@ -1,0 +1,353 @@
+/*
+ * __        __          _                  ____  _         _
+ * \ \      / /_ _ _   _| |__   __ _ _ __  / ___|| |_ _   _| | ___
+ *  \ \ /\ / / _` | | | | '_ \ / _` | '__| \___ \| __| | | | |/ _ \
+ *   \ V  V / (_| | |_| | |_) | (_| | |     ___) | |_| |_| | |  __/
+ *    \_/\_/ \__,_|\__, |_.__/ \__,_|_|    |____/ \__|\__, |_|\___|
+ *                 |___/                              |___/
+ *
+ * by Stephan Raabe (2023)
+ * -----------------------------------------------------
+*/
+
+/* -----------------------------------------------------
+ * Import Pywal colors
+ * ----------------------------------------------------- */
+/* @import 'style-light.css'; */
+@define-color backgroundlight #FFFFFF;
+@define-color backgrounddark #FFFFFF;
+@define-color workspacesbackground1 #FFFFFF;
+@define-color workspacesbackground2 #CCCCCC;
+@define-color bordercolor #FFFFFF;
+@define-color textcolor1 #000000;
+@define-color textcolor2 #000000;
+@define-color textcolor3 #FFFFFF;
+@define-color iconcolor #FFFFFF;
+
+/* -----------------------------------------------------
+ * General
+ * ----------------------------------------------------- 
+ */
+
+
+* {
+    font-family: "Monofonto", monospace, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 12px; /* ↓ smaller text */
+    border: none;
+    border-radius: 0px;
+    background-color: #000000;
+}
+
+.modules-left {
+    background-color: rgba(255, 0, 0, 0.3);
+    border: 2px solid red;
+}
+
+.modules-center {
+    background-color: #e6c15d; /* Amber: Pip-Boy highlight */
+    margin: 2px 2px 2px 2px;
+}
+
+.modules-right {
+    background-color: #000000;
+    margin: 2px 2px 2px 2px;
+    padding: 1px 10px;
+    border-top: 2px solid #e6c15d;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 13px;
+    color: #e6c15d;
+    transition: none;
+    box-shadow:
+        inset 2px 0px 2px -1px #e6c15d,  /* left taper */
+        inset -2px 0px 2px -1px #e6c15d; /* right taper */ 
+}
+
+
+/* -----------------------------------------------------
+ * Workspaces
+ * ----------------------------------------------------- 
+ */
+
+#workspaces {
+    padding: 1px 5px;
+    border-top: 2px solid #e6c15d;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 13px;
+    color: #e6c15d;
+    transition: none;
+    box-shadow:
+        inset 2px 0px 2px -1px #e6c15d,  /* left taper */
+        inset -2px 0px 2px -1px #e6c15d; /* right taper */
+}
+
+#workspaces button {
+    color: #e6c15d;
+    padding: 1px 8px;
+    background: #000000;
+    transition: none;
+}
+
+#workspaces button.active {
+    border: 2px solid #e6c15d; /* Thinner border with matching color */
+    color: #e6c15d;
+    padding: 1px 8px;
+    background-color: rgba(255,191,0,0.2);
+    min-width: 12px;
+    transition: none;
+}
+
+#workspaces button:hover {
+    color: #e6c15d;
+    border: 2px solid #e6c15d;
+    padding: 1px 8px;
+    background: rgba(255,191,0,0.2);
+    min-width: 12px;
+    transition: none;
+}
+
+#workspaces button:hover * {
+    color: #e6c15d;
+}
+
+/* -----------------------------------------------------
+ * Tooltips
+ * ----------------------------------------------------- 
+ */
+
+tooltip {
+    background-color: #000000;
+    padding:10px;
+    border-top: 2px solid #e6c15d;
+    box-shadow:
+        inset 2px 0px 2px -1px #e6c15d,  /* left taper */
+        inset -2px 0px 2px -1px #e6c15d; /* right taper */
+}
+
+tooltip label {
+    color: #e6c15d;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 14px;
+}
+
+/* -----------------------------------------------------
+ * Modules
+ * ----------------------------------------------------- 
+ */
+
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+/* -----------------------------------------------------
+ * Hardware Group
+ * ----------------------------------------------------- 
+ */
+
+#disk, #memory, #cpu, #language {
+    margin:0px;
+    padding:0px;
+    font-size:14px;
+    color:@iconcolor;
+}
+
+#language {
+    margin-right:10px;
+}
+
+/* -----------------------------------------------------
+ * Power Profiles Daemon
+ * ----------------------------------------------------- 
+ */
+
+#power-profiles-daemon {
+    margin: 0px 13px 0px 0px;
+    padding:0px;
+    font-size:14px;
+    color:@iconcolor;
+}
+
+/* -----------------------------------------------------
+ * Clock
+ * ----------------------------------------------------- 
+ */
+
+#clock {
+    color: #e6c15d;
+    margin: 0px 0px 1px 0px;
+    padding: 1px 10px;
+    font-weight: bold;
+    font-style: normal;
+    transition: none;
+}
+
+/* -----------------------------------------------------
+ * Pulseaudio
+ * ----------------------------------------------------- 
+ */
+
+#pulseaudio {
+    margin: 0px 14px 1px 8px;
+    padding: 1px 1px;
+    color: #e6c15d;
+    font-weight: bold;
+    font-style: normal;
+    transition: none;
+}
+
+#pulseaudio.muted {
+    margin: 0px 14px 1px 8px;
+    padding: 1px 1px;
+    color: #e6c15d;
+    font-weight: bold;
+    font-style: normal;
+    transition: none;
+}
+
+#custom-volume_bar {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 14px;
+  color: #e6c15d;
+
+  padding: 0px 5px;
+  margin: 0px 14px 1px 0px;
+  border: 2px solid #e6c15d;
+}
+
+
+/* -----------------------------------------------------
+ * Network
+ * ----------------------------------------------------- 
+ */
+
+#network {
+    margin: 0px 14px 1px 0px;
+    padding: 1px 7px;
+    color: #e6c15d;
+    font-weight: bold;
+    font-style: normal;
+    transition: none;
+}
+
+#network.ethernet {
+    margin: 0px 14px 1px 0px;
+    padding: 1px 7px;
+    border: 2px solid #e6c15d; /* Thinner border with matching color */
+    color: #e6c15d;
+    font-weight: bold;
+    font-style: normal;
+    transition: none;
+    background-color: rgba(255,191,0,0.2);
+    box-shadow:
+        inset 2px 0px 2px -1px #e6c15d,  /* left taper */
+        inset -2px 0px 2px -1px #e6c15d; /* right taper */
+}
+
+#network.wifi {
+    margin: 0px 14px 1px 0px;
+    padding: 1px 7px;
+    border: 2px solid #e6c15d; /* Thinner border with matching color */
+    color: #e6c15d;
+    font-weight: bold;
+    font-style: normal;
+    transition: none;
+    background-color: rgba(255,191,0,0.2);
+    box-shadow:
+        inset 2px 0px 2px -1px #e6c15d,  /* left taper */
+        inset -2px 0px 2px -1px #e6c15d; /* right taper */
+}
+
+#network.disconnected {
+    margin: 0px 8px 1px 0px;
+    padding: 1px 10px;
+    color: #e6c15d;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 14px;
+    transition: none;
+}
+
+/* -----------------------------------------------------
+ * Bluetooth
+ * ----------------------------------------------------- 
+ */
+
+#bluetooth, #bluetooth.on, #bluetooth.connected {
+    font-size: 14px;
+    color: @textcolor;
+    border-radius: 15px;
+    margin: 10px 15px 10px 0px;
+}
+
+#bluetooth.off {
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* -----------------------------------------------------
+ * Battery
+ * ----------------------------------------------------- 
+ */
+
+#battery {
+    margin: 0px 0px 1px 0px;
+    min-width: 90px;
+    padding: 1px 7px;
+    font-weight: bold;
+    font-style: normal;
+    color: #e6c15d;
+}
+
+#battery.charging, #battery.plugged {
+    transition: none;
+    border: 2px solid #e6c15d; /* Thinner border with matching color */
+    color: #e6c15d;
+    margin: 0px 0px 1px 0px;
+    background-color: rgba(255,191,0,0.2);
+    box-shadow:
+        inset 2px 0px 2px -1px #e6c15d,  /* left taper */
+        inset -2px 0px 2px -1px #e6c15d; /* right taper */
+}
+
+@keyframes blink {
+    to {
+        background-color: @e6c15d;
+        color: @textcolor2;
+    }
+}
+
+#battery.critical:not(.charging) {
+    color: #e6c15d;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#custom-apps{
+    margin: 0px 0px 1px 0px;
+    min-width: 90px;
+    padding: 1px 7px;
+    font-weight: bold;
+    font-style: normal;
+    color: #e6c15d;
+}
+
+#custom-apps:hover{
+    transition: none;
+    border: 2px solid #e6c15d; /* Thinner border with matching color */
+    color: #e6c15d;
+    margin: 0px 0px 1px 0px;
+    background-color: rgba(255,191,0,0.2);
+    box-shadow:
+        inset 2px 0px 2px -1px #e6c15d,  /* left taper */
+        inset -2px 0px 2px -1px #e6c15d; /* right taper */
+}
