@@ -1,0 +1,102 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+
+  "logo": {
+    "source": "~/.config/fastfetch/logos/ranger.txt",
+    "padding": {
+        "top": 0,
+        "left": 0
+    }
+},
+  "modules": [
+	"break",
+        "break",
+        {
+            "type": "custom",
+            "format": "\u001b[90m┌──────────────────────Hardware──────────────────────┐"
+        },
+        "break",
+        {
+            "type": "host",
+            "key": " PC"
+        },
+        {
+            "type": "cpu",
+            "key": "│ ├"
+ 
+        },
+        {
+            "type": "gpu",
+            "key": "│ ├󰍛"
+
+        },
+        {
+            "type": "memory",
+            "key": "│ ├󰍛"
+        },
+        {
+            "type": "disk",
+            "key": "└ └"
+        },
+        "break",
+        {
+            "type": "custom",
+            "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+        },
+        "break",
+        "break",
+        {
+            "type": "custom",
+            "format": "\u001b[90m┌──────────────────────Software──────────────────────┐"
+        },
+	"break",
+        {
+            "type": "os",
+            "key": " OS"
+        },
+        {
+            "type": "kernel",
+            "key": "│ ├"
+        },
+        {
+            "type": "bios",
+            "key": "│ ├"
+        },
+        {
+            "type": "packages",
+            "key": "│ ├󰏖"
+        },
+        {
+            "type": "shell",
+            "key": "└ └"
+        },
+        "break",
+
+        {
+          "type": "de",
+          "key": " DE"
+      },
+      {
+          "type": "lm",
+          "key": "│ ├"
+      },
+      {
+          "type": "wm",
+          "key": "│ ├"
+      },
+      {
+          "type": "wmtheme",
+          "key": "│ ├󰉼"
+      },
+      {
+          "type": "terminal",
+          "key": "└ └"
+      },
+      "break",
+      {
+          "type": "custom",
+          "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+      },
+      "break"
+  ]
+}
